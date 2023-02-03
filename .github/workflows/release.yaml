@@ -68,11 +68,11 @@ jobs:
       - id: release-image-inputs
         name: Add additional inputs for release-image action
         env:
-          EXTRA_INPUT_SLACK_WEBHOOK_URL: ${{ secrets.DISTROLESS_SLACK_WEBHOOK }}
-          EXTRA_INPUT_GCS_AUTH_WORKLOAD_IDENTITY_PROVIDER: ${{ secrets.GCS_AUTH_WORKLOAD_IDENTITY_PROVIDER }}
-          EXTRA_INPUT_GCS_AUTH_SERVICE_ACCOUNT: ${{ secrets.GCS_AUTH_SERVICE_ACCOUNT }}
-          EXTRA_INPUT_GCS_AUTH_PROJECT_ID: ${{ secrets.GCS_AUTH_PROJECT_ID }}
-          EXTRA_INPUT_GCS_BUCKET_NAME: chainguard-images-build-outputs
+          EXXTRA_INPUT_SLACK_WEBHOOK_URL: ${{ secrets.DISTROLESS_SLACK_WEBHOOK }}
+          EXXTRA_INPUT_GCS_AUTH_WORKLOAD_IDENTITY_PROVIDER: ${{ secrets.GCS_AUTH_WORKLOAD_IDENTITY_PROVIDER }}
+          EXXTRA_INPUT_GCS_AUTH_SERVICE_ACCOUNT: ${{ secrets.GCS_AUTH_SERVICE_ACCOUNT }}
+          EXXTRA_INPUT_GCS_AUTH_PROJECT_ID: ${{ secrets.GCS_AUTH_PROJECT_ID }}
+          EXXTRA_INPUT_GCS_BUCKET_NAME: chainguard-images-build-outputs
         run: |
           # convert env vars beginning with "EXTRA_INPUT_"
           # to camelcased input variables passed to next step
