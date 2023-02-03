@@ -4,13 +4,13 @@ metadata:
   name: is-signed
 spec:
   images:
-    - glob: cgr.dev/chainguard/*
+    - glob: ghcr.io/jdolitsky/*
   authorities:
     - name: keyless-authority
       keyless:
         url: https://fulcio.sigstore.dev
         identities:
           - issuer: https://token.actions.githubusercontent.com
-            subject: https://github.com/chainguard-images/images/.github/workflows/release.yaml@refs/heads/main
+            subject: https://github.com/jdolitsky/images/.github/workflows/release.yaml@refs/heads/faster-policy-check-testing
       ctlog:
         url: https://rekor.sigstore.dev
