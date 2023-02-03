@@ -3,7 +3,7 @@
 | | |
 | - | - |
 | **Status** | stable |
-| **OCI Reference** | `cgr.dev/chainguard/curl` |
+| **OCI Reference** | `ghcr.io/jdolitsky/curl` |
 | **Variants/Tags** | ![](https://storage.googleapis.com/chainguard-images-build-outputs/summary/curl.svg) |
 ---
 <!--monopod:end-->

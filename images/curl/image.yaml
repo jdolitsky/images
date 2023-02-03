@@ -1,3 +1,4 @@
+ref: ghcr.io/jdolitsky/curl
 versions:
   - apko:
       config: configs/latest.apko.yaml
