@@ -1,7 +1,0 @@
-versions:
-  - apko:
-      config: configs/latest.apko.yaml
-      extractTagsFrom:
-        package: postgresql-15
-      tags:
-        - 15

@@ -1,3 +1,4 @@
+ref: ghcr.io/jdolitsky/wolfi-base
 versions:
   - apko:
       config: configs/latest.apko.yaml

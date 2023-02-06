@@ -51,7 +51,7 @@ runs:
 
     # Build and push
     - id: apko
-      uses: chainguard-images/actions/apko-snapshot@main
+      uses: jdolitsky/distroless-actions/apko-snapshot@main
       with:
         config: ${{ inputs.apkoConfig }}
         base-tag: ${{ inputs.apkoBaseTag }}

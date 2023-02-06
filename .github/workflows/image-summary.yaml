@@ -1,7 +1,7 @@
 on:
-  schedule:
+  #schedule:
     # 3 hours after release job
-    - cron: '0 3 * * *'
+  #  - cron: '0 3 * * *'
   workflow_dispatch: {}
 concurrency: image-summary
 jobs:
