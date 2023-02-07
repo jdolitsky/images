@@ -1,9 +1,9 @@
 on:
   push:
     branches:
-      - main
-  schedule:
-    - cron: '0 0 * * *'
+      - apko-failures
+  #schedule:
+  #  - cron: '0 0 * * *'
   workflow_dispatch:
     inputs:
       only:
@@ -22,22 +22,22 @@ jobs:
     - uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
     # For manual builds, build only the image requested
     - id: generate-matrix-manual
-      if: ${{ github.event_name == 'workflow_dispatch' && inputs.only != '' }}
+      if: ${{ github.event_name == 'xworkflow_dispatch' && inputs.only != '' }}
       uses: ./.github/actions/generate-matrix
       with:
         modified-files: images/${{ inputs.only }}/image.yaml
     # For nightly builds, build every image (or on manual with no "only" input)
     - id: generate-matrix-schedule
-      if: ${{ github.event_name == 'schedule' || ( github.event_name == 'workflow_dispatch' && inputs.only == '' ) }}
+      #if: ${{ github.event_name == 'xschedule' || ( github.event_name == 'workflow_dispatch' && inputs.only == '' ) }}
       uses: ./.github/actions/generate-matrix
     # On push to main branch, only build images necessary
     - id: files
-      if: ${{ github.event_name != 'schedule' && github.event_name != 'workflow_dispatch' }}
+      if: ${{ github.event_name == 'xschedule' && github.event_name != 'workflow_dispatch' }}
       uses: jitterbit/get-changed-files@b17fbb00bdc0c0f63fcf166580804b4d2cdc2a42 # v1
       with:
         format: csv
     - id: generate-matrix-main
-      if: ${{ github.event_name != 'schedule' && github.event_name != 'workflow_dispatch' }}
+      if: ${{ github.event_name == 'xschedule' && github.event_name != 'workflow_dispatch' }}
       uses: ./.github/actions/generate-matrix
       with:
         modified-files: ${{ steps.files.outputs.all }}
