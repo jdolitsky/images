@@ -11,3 +11,4 @@ versions:
       extractTagsFrom:
         package: openjdk-11
         prefix: openjdk-
+ref: ghcr.io/jdolitsky/apko-failures/jdk

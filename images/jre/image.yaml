@@ -13,3 +13,4 @@ versions:
         prefix: openjdk-
       tags:
         - openjdk-jre-11 # TODO: deprecate this old tag
+ref: ghcr.io/jdolitsky/apko-failures/jre

@@ -13,3 +13,4 @@ versions:
         package: php
         prefix: fpm-
       config: configs/latest-fpm.apko.yaml
+ref: ghcr.io/jdolitsky/apko-failures/php

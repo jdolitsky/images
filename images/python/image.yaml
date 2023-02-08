@@ -8,3 +8,4 @@ versions:
         package: python3
         prefix: dev-
       config: configs/latest-dev.apko.yaml
+ref: ghcr.io/jdolitsky/apko-failures/python

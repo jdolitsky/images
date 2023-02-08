@@ -22,3 +22,4 @@ versions:
       extractTagsFrom:
         package: git
         prefix: glibc-root-
+ref: ghcr.io/jdolitsky/apko-failures/git

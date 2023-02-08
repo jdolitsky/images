@@ -3,3 +3,4 @@ versions:
       config: configs/latest.apko.yaml
       extractTagsFrom:
         package: apko
+ref: ghcr.io/jdolitsky/apko-failures/apko

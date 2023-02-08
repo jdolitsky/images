@@ -4,3 +4,4 @@ versions:
       config: configs/latest.apko.yaml
       extractTagsFrom:
         package: jenkins
+ref: ghcr.io/jdolitsky/apko-failures/jenkins

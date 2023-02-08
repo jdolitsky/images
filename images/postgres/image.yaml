@@ -5,3 +5,4 @@ versions:
         package: postgresql-15
       tags:
         - 15
+ref: ghcr.io/jdolitsky/apko-failures/postgres

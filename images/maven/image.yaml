@@ -11,3 +11,4 @@ versions:
       extractTagsFrom:
         package: maven
         prefix: openjdk-11-
+ref: ghcr.io/jdolitsky/apko-failures/maven

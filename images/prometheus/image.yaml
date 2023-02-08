@@ -3,3 +3,4 @@ versions:
       config: configs/latest.apko.yaml
       extractTagsFrom:
         package: prometheus
+ref: ghcr.io/jdolitsky/apko-failures/prometheus

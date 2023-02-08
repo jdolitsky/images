@@ -8,3 +8,4 @@ versions:
       extractTagsFrom:
         package: busybox
         prefix: glibc-
+ref: ghcr.io/jdolitsky/apko-failures/busybox

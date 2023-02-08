@@ -11,3 +11,4 @@ versions:
       config: configs/16.apko.yaml
       extractTagsFrom:
         package: nodejs-16
+ref: ghcr.io/jdolitsky/apko-failures/node
