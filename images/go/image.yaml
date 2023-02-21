@@ -1,3 +1,4 @@
+ref: ghcr.io/jdolitsky/apko-failures/go
 versions:
   - apko:
       config: configs/1.19.apko.yaml
@@ -9,4 +10,15 @@ versions:
       config: configs/latest.apko.yaml
       extractTagsFrom:
         package: go-1.20
-ref: ghcr.io/jdolitsky/apko-failures/go
+  - apko:
+      config: configs/1.19-dev.apko.yaml
+      extractTagsFrom:
+        package: go-1.19
+        prefix: dev-
+        exclude:
+          - 1
+  - apko:
+      config: configs/latest-dev.apko.yaml
+      extractTagsFrom:
+        prefix: dev-
+        package: go-1.20
