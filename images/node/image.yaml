@@ -2,7 +2,7 @@ ref: ghcr.io/jdolitsky/apko-failures/node
 versions:
   - apko:
       extractTagsFrom:
-        package: nodejs
+        package: nodejs-18
       config: configs/latest.apko.yaml
   - apko:
       config: configs/19.apko.yaml
