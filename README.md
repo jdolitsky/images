@@ -44,3 +44,4 @@
 | [wait-for-it](./images/wait-for-it) | `cgr.dev/chainguard/wait-for-it` | stable | [![](https://storage.googleapis.com/chainguard-images-build-outputs/badges/wait-for-it.build.status.latest.svg)](https://registry-ui.chainguard.app/?image=cgr.dev/chainguard/wait-for-it:latest) |
 | [wolfi-base](./images/wolfi-base) | `cgr.dev/chainguard/wolfi-base` | stable | [![](https://storage.googleapis.com/chainguard-images-build-outputs/badges/wolfi-base.build.status.latest.svg)](https://registry-ui.chainguard.app/?image=cgr.dev/chainguard/wolfi-base:latest) |
 
+
