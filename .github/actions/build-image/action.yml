@@ -52,7 +52,7 @@ runs:
         archs: x86_64 # To speed up CI, just build for x86_64 ${{ inputs.melangeArchs }}
         template: ${{ inputs.melangeTemplate }}
     - id: apko
-      uses: chainguard-images/actions/apko-build@main
+      uses: chainguard-images/actions/apko-build@apko-main
       with:
         config: ${{ inputs.apkoConfig }}
         tag: ${{ inputs.imageName }}:${{ github.sha }}
