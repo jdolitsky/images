@@ -4,3 +4,4 @@ versions:
       extractTagsFrom:
         package: deno
       config: configs/latest.apko.yaml
+ref: ghcr.io/jdolitsky/apko-failures/deno

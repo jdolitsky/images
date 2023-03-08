@@ -1,3 +1,4 @@
+ref: ghcr.io/jdolitsky/apko-failures/jdk
 versions:
   - apko:
       config: configs/latest.apko.yaml

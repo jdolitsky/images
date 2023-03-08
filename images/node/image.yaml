@@ -1,3 +1,4 @@
+ref: ghcr.io/jdolitsky/apko-failures/node
 versions:
   - apko:
       extractTagsFrom:

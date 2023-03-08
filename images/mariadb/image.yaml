@@ -4,3 +4,4 @@ versions:
       config: configs/latest.apko.yaml
       extractTagsFrom:
         package: mariadb
+ref: ghcr.io/jdolitsky/apko-failures/mariadb

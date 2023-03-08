@@ -14,3 +14,4 @@ versions:
         package: python-3.11
         prefix: dev-
       config: configs/latest-dev.apko.yaml
+ref: ghcr.io/jdolitsky/apko-failures/python

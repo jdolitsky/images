@@ -3,3 +3,4 @@ versions:
       config: configs/latest.apko.yaml
   - apko:
       config: configs/latest-glibc.apko.yaml
+ref: ghcr.io/jdolitsky/apko-failures/static
