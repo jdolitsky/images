@@ -78,8 +78,8 @@ runs:
         CGR_PASS="$(echo "${CRED_HELPER_GET_RESPONSE}" | jq -r .Secret)"
         echo "::add-mask::${CGR_USER}"
         echo "::add-mask::${CGR_PASS}"
-        echo "username=${CGR_USER}" >> $GITHUB_OUTPUT
-        echo "password=${CGR_PASS}" >> $GITHUB_OUTPUT
+        echo "cgr-u=${CGR_USER}" >> $GITHUB_OUTPUT
+        echo "cgr-p=${CGR_PASS}" >> $GITHUB_OUTPUT
 
     # If publishing to GCR, setup OIDC->SA auth
     - id: gcrauth1
@@ -143,8 +143,8 @@ runs:
         stage_tags: apko.tags
         build-options: ${{ inputs.apkoBuildOptions }}
         sbom-attest: true
-        generic-user: ${{ steps.cgrauth2.outputs.username }}
-        generic-pass: ${{ steps.cgrauth2.outputs.password }}
+        generic-user: ${{ steps.cgrauth2.outputs.cgr-u }}
+        generic-pass: ${{ steps.cgrauth2.outputs.cgr-p }}
 
     - name: Extract the digests for each architecture
       id: extract
