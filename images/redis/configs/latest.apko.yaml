@@ -6,7 +6,6 @@ contents:
   packages:
     - redis
     - busybox
-    - wolfi-baselayout
 
 accounts:
   groups:

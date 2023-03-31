@@ -7,7 +7,6 @@ contents:
     - ca-certificates-bundle
     - build-base
     - busybox
-    - wolfi-baselayout
 
 paths:
   - path: /work

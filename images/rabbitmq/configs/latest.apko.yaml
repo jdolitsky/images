@@ -5,7 +5,6 @@ contents:
     - https://packages.wolfi.dev/os
   packages:
     - rabbitmq-server
-    - wolfi-baselayout
     - bash
     - glibc-locale-en
     - tzdata

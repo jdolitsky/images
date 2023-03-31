@@ -6,7 +6,6 @@ contents:
   packages:
     - mariadb
     - mariadb-oci-entrypoint
-    - wolfi-baselayout
     - tzdata
 
 accounts:

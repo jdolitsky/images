@@ -8,7 +8,6 @@ contents:
     - git
     - git-lfs
     - openssh-client
-    - wolfi-baselayout
 
 entrypoint:
   command: /usr/bin/git

@@ -6,7 +6,6 @@ contents:
   packages:
     - ca-certificates-bundle
     - python-3.11
-    - wolfi-baselayout
 
 
 entrypoint:

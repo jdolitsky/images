@@ -10,7 +10,6 @@ contents:
     - git
     - go-1.19
     - openssh
-    - wolfi-baselayout
 
 accounts:
   groups:

@@ -6,7 +6,6 @@ contents:
   packages:
     - etcd
     - ca-certificates-bundle
-    - wolfi-baselayout
 
 accounts:
   groups:

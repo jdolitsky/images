@@ -7,7 +7,6 @@ contents:
     - ca-certificates-bundle
     - glibc
     - libgcc
-    - wolfi-baselayout
 
 accounts:
   groups:

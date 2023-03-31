@@ -6,7 +6,6 @@ contents:
   packages:
     - ca-certificates-bundle
     - helm
-    - wolfi-baselayout
     - kubectl
 
 accounts:
