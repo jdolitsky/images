@@ -31,19 +31,14 @@ jobs:
         scope: ${{ github.repository }}
         identity: lockbot
 
-    # - uses: chainguard-dev/digestabot@3830b931642989ef391e6db4c0bbcd2bc20d064f # v1.0.3
-    #   with:
-    #     token: ${{ steps.octo-sts.outputs.token }}
-
-    - uses: actions/checkout@9bb56186c3b09b4f86b1c65136769dd318469633 # v4.1.2
-      with:  
-        repository: minamijoyo/tfupdate
-        ref: 9844864f6d8dfb13fe18569c9ae541a9838e3bb0 # v
-        path: tfupdate
-    
-    - name: Install and run minamijoyo/tfupdate
+    # TODO: use ${{ steps.octo-sts.outputs.token }} for git commit
+    - name: Run tfupdate and open PR if any diff
       shell: bash
       run: |
-        go install tfupdate
-        tfupdate --help
-        NewLockUpdater
+        set -x
+        make tfupdate
+        if git diff-index --quiet HEAD --; then
+          echo "No git diff detected. Exiting."
+          exit 0
+        fi
+        # TODO: open PR with diff here
