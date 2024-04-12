@@ -65,3 +65,6 @@ k3d: k3d-registry
 k3d-clean:
 	@# Destroy the k3d cluster, but keep the registry around since it can safely persist across clusters
 	k3d cluster delete
+
+tfupdate:
+	(cd monopod/ && go build -o monopod . && cd ../ && monopod/monopod tfupdate)

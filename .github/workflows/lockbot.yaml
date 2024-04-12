@@ -1,0 +1,49 @@
+name: Terraform lockfile update
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 1 * * *"
+
+permissions:
+  contents: read
+
+jobs:
+  image-update:
+    name: Image digest update
+    runs-on: ubuntu-latest
+    if: github.repository == 'chainguard-images/images'
+
+    permissions:
+      contents: read # To clone the repo
+      id-token: write # To gitsign and federate
+
+    steps:
+    - uses: step-security/harden-runner@63c24ba6bd7ba022e95695ff85de572c04a18142 # v2.7.0
+      with:
+        egress-policy: audit
+
+    - uses: actions/checkout@9bb56186c3b09b4f86b1c65136769dd318469633 # v4.1.2
+
+    - uses: octo-sts/action@6177b4481c00308b3839969c3eca88c96a91775f # v1.0.0
+      id: octo-sts
+      with:
+        scope: ${{ github.repository }}
+        identity: lockbot
+
+    # - uses: chainguard-dev/digestabot@3830b931642989ef391e6db4c0bbcd2bc20d064f # v1.0.3
+    #   with:
+    #     token: ${{ steps.octo-sts.outputs.token }}
+
+    - uses: actions/checkout@9bb56186c3b09b4f86b1c65136769dd318469633 # v4.1.2
+      with:  
+        repository: minamijoyo/tfupdate
+        ref: 9844864f6d8dfb13fe18569c9ae541a9838e3bb0 # v
+        path: tfupdate
+    
+    - name: Install and run minamijoyo/tfupdate
+      shell: bash
+      run: |
+        go install tfupdate
+        tfupdate --help
+        NewLockUpdater
