@@ -42,7 +42,13 @@ func TfUpdate() *cobra.Command {
 	return tfupdateCmd
 }
 
-func (o tfupdateOptions) runTfUpdate(ctx context.Context) error {
+/*
+func getHashOfZip(zipFilePath string) (string, error) {
+	return dirhash.HashZip(zipFilePath, dirhash.Hash1)
+}
+*/
+
+func (o tfupdateOptions) runTfUpdateOld(ctx context.Context) error {
 	aferoFs := afero.NewOsFs()
 	lockOption, err := tfupdate.NewOption("lock", "", "", o.platforms, true, []string{})
 	if err != nil {

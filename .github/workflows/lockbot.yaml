@@ -37,6 +37,18 @@ jobs:
       run: |
         set -x
         make tfupdate
+
+        // zipDataToH1Hash is a helper function that calculates the h1 hash value from
+// bytes sequence of the provider's zip archive.
+func zipDataToH1Hash(zipData []byte) (string, error) {
+	// The h1 hash value in .terraform.lock.hcl uses the same hash function as go.sum.
+	hash, err := dirhash.HashZip(tmpZipfile.Name(), dirhash.Hash1)
+	if err != nil {
+		return "", fmt.Errorf("failed to calculate h1 hash: %s", err)
+	}
+	return hash, nil
+}
+
         if git diff-index --quiet HEAD --; then
           echo "No git diff detected. Exiting."
           exit 0
