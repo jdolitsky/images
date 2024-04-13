@@ -43,15 +43,12 @@ for provider in $(tq '.body.blocks[] | select(.type == "provider").labels[0]' .t
     v="";
     for h in $(echo "${h1_hashes[@]}" | tr ' ' '\n' | sort); do v="${v}\n\\\"${h}\\\","; done
     for h in $(echo "${zh_hashes[@]}" | tr ' ' '\n' | sort); do v="${v}\n\\\"${h}\\\","; done
-    echo "# This file is maintained automatically by \"terraform init\"." > .terraform.lock.hcl.tmp
-    echo -e "# Manual edits may be lost in future updates.\n" >> .terraform.lock.hcl.tmp
+    echo -e "# This file is maintained automatically by \"make tf-lockfile\".\n" > .terraform.lock.hcl.tmp
     tq '.body.blocks[] |= if (
         .labels[0] == "registry.terraform.io/'${provider}'"
     ) then (
         .attributes["hashes"] = "['${v}'\n]"
-    ) else . end' .terraform.lock.hcl | \
-        awk '{ printf( "%s%s" , NR>1?"\n":"" , $0 ) }' | 
-        awk '{ printf( "%s%s" , NR>1?"\n":"" , $0 ) }' >> .terraform.lock.hcl.tmp # remove last 2 newlines
+    ) else . end' .terraform.lock.hcl >> .terraform.lock.hcl.tmp
     mv .terraform.lock.hcl.tmp .terraform.lock.hcl
     echo "[provider:${provider}] hashes updated in .terraform.lock.hcl"
 done
