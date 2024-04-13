@@ -1,4 +1,4 @@
-name: tf-lockfile-bot
+name: Terraform lockfile bot
 
 on:
   workflow_dispatch:
@@ -37,4 +37,10 @@ jobs:
       run: |
         set -x
         make tf-lockfile
+        if git diff-index --quiet HEAD --; then
+          echo "No diff detected, exiting."
+          exit 0
+        fi
+        echo "Diff detected in lockfile, submitting PR..."
         git diff
+
