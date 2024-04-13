@@ -20,7 +20,7 @@ function build_h1hashgen() {
     )
     func main() {
         hash, _ := dirhash.HashZip(os.Args[1], dirhash.Hash1)
-        fmt.Print(hash)
+        fmt.Println(hash)
     }' > h1hashgen/main.go
     (
         cd h1hashgen && \
@@ -37,11 +37,12 @@ function get_all_providers() {
 function update_provider_h1_hashes() {
     provider="${1}"
     version="$(tq '.body.blocks[] | select(.type == "provider" and .labels[0] == "'${provider}'").attributes["version"]' .terraform.lock.hcl | sed 's|"||g')"
-    
     for variant in "darwin/amd64" "darwin/arm64" "linux/amd64" "linux/arm64"; do
         meta_url="$(echo "${provider}" | sed 's|registry.terraform.io/|https://registry.terraform.io/v1/providers/|')/${version}/download/${variant}"
         download_url="$(curl -sL "${meta_url}" | jq -r .download_url)"
-        echo "${download_url}"
+        download_to="${TMPDIR}/$(basename "${download_url}")"
+        curl -sLo "${download_to}" "${download_url}"
+        h1hashgen/h1hashgen "${download_to}"
     done
 
 }
