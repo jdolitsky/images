@@ -1,5 +1,6 @@
 # This file is maintained automatically by "terraform init".
 # Manual edits may be lost in future updates.
+
 provider "registry.terraform.io/chainguard-dev/apko" {
   constraints = "0.15.2"
   hashes = [
@@ -50,17 +51,14 @@ provider "registry.terraform.io/chainguard-dev/cosign" {
 
 provider "registry.terraform.io/chainguard-dev/imagetest" {
   hashes = [
-    "h1:E9QPnLxpK2eBYTcq98mOsYzQk6DesMFl85pOPKLqbCU=",
-    "h1:Ms0qBAEz2O3TmFuCbl4wvfVIdtAJeTptLHltiKfVgWI=",
-    "h1:chY5JsynajkVhjEUPfyQe2oE0O+0q+90GhTYSyYd5r4=",
-    "h1:l14VgkvJfRLbbE7CEOnNoy88i2g+pkYUa8nkeJOujYU=",
-    "zh:6c0f636a35d39b38a9a3043cb79c98a1b6500624ec6acc266368b6b46e13e511",
-    "zh:76d75433235e6a84d65df7476386b766efd67ae74a7dea487c14365859c68d99",
+    "h1:iqoifAH1jq7DZV1u2tt14vOFhXgcVKutVpOHOemMBmQ=",
+    "zh:24ee54c85af01542c46611a4e3d9f135825dbb19ebc227bcb30a3d105a277f67",
+    "zh:762cb135b1351948cff656d3335ce67afa0f9808a2bab995431f554277738a4f",
     "zh:890df766e9b839623b1f0437355032a3c006226a6c200cd911e15ee1a9014e9f",
-    "zh:b6f3106de4a364e2c11efb306b873cd06bdc640aea5a2b7c70dc6f1a118c35fd",
-    "zh:ea4d40dc366edc60c21886d71350dab1d64c72cdff3c8686a09eebd08984d958",
+    "zh:d06ae7dbfa14ac57552565183152089f80967f87f2c37571d731b77bdeb71fd8",
+    "zh:f0ba6dd827f1af7741fddebe18aa8f2a20c584b535922385aa37a25b40978eef",
   ]
-  version = "0.0.15"
+  version = "0.0.16"
 }
 
 provider "registry.terraform.io/chainguard-dev/oci" {
@@ -167,5 +165,3 @@ provider "registry.terraform.io/hashicorp/random" {
   ]
   version = "3.6.0"
 }
-
-

@@ -1,6 +1,6 @@
 monopod/monopod
-bin/
-zip-h1-hash/
+**/bin/
+**/zip-h1-hash/
 generated/
 .idea
 
