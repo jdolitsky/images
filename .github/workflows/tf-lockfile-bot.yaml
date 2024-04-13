@@ -1,4 +1,4 @@
-name: tf-lockfile-update
+name: tf-lockfile-bot
 
 on:
   workflow_dispatch:
@@ -29,12 +29,12 @@ jobs:
       id: octo-sts
       with:
         scope: ${{ github.repository }}
-        identity: tf-lockfile-update-bot
+        identity: tf-lockfile-bot
 
     # TODO: use ${{ steps.octo-sts.outputs.token }} for git commit
-    - name: Run tfupdate and open PR if any diff
+    - name: Update lockfile and open PR if any diff
       shell: bash
       run: |
         set -x
-        make tf-lockfile-update
+        make tf-lockfile
         git diff
