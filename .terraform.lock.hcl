@@ -81,6 +81,9 @@ provider "registry.terraform.io/chainguard-dev/oci" {
 
 provider "registry.terraform.io/hashicorp/helm" {
   hashes = [
+    "h1:0s5DUMqAdLGt/zy/doBScFih0pXF9BXpEChT7dxaGHg=",
+    "h1:3peirlHPsz+RLGnXIE2lpwUkIaeGSeTkZzpyDzO6WoQ=",
+    "h1:hQIozFWLJk67bKslnNIZPHYb037+6uO86sHVkntPjXY=",
     "h1:jGANeRsj81e6I6LYTV7s+7bOfeb6wtVssAOnbu+ZUWg=",
     "zh:016e42bea1c9145b0856bfcf1e5faf657e40e9a94e4d80bee9e0b8742eb9f5fd",
     "zh:0a325cfcb62d4c611a9a7854d2ca26ee8cbd27a1cae40f607c0966e36a858358",
@@ -101,7 +104,10 @@ provider "registry.terraform.io/hashicorp/helm" {
 provider "registry.terraform.io/hashicorp/kubernetes" {
   constraints = "~> 2.28.1"
   hashes = [
+    "h1:MxFxT7akQrKsNa0DacfGCgL70x6oOVqrfDpb9XL7r1E=",
     "h1:aedOeTOSep3b/4Z3L8bUTkZprvtQHqcgOMFCM6Pzf74=",
+    "h1:dz19GGfPjkjAqYlFzo3YreQ4UN4XR7d9e7W2h4atNJI=",
+    "h1:xgnQUhpD7U/UYTG7DmVcmU7ZE9a4s9hzQXyPm2BtW4w=",
     "zh:05cee583902f025a3eb4e25e7bd0229564a7208c94767bcb6b4df13b6f85ba0d",
     "zh:0c169cc1044d314ee2e5f047ddd38f5a04e8de3c61150adcd630de58f4906c6f",
     "zh:1887615c6045dc7111c24d9d48a885a1b91c6e8a837b111abe8542873ba71ad7",
@@ -120,7 +126,10 @@ provider "registry.terraform.io/hashicorp/kubernetes" {
 
 provider "registry.terraform.io/hashicorp/null" {
   hashes = [
+    "h1:Gef5VGfobY5uokA5nV/zFvWeMNR2Pmq79DH94QnNZPM=",
     "h1:IMVAUHKoydFrlPrl9OzasDnw/8ntZFerCC9iXw1rXQY=",
+    "h1:vWAsYRd7MjYr3adj8BVKRohVfHpWQdvkIwUQ2Jf5FVM=",
+    "h1:zT1ZbegaAYHwQa+QwIFugArWikRJI9dqohj8xb0GY88=",
     "zh:3248aae6a2198f3ec8394218d05bd5e42be59f43a3a7c0b71c66ec0df08b69e7",
     "zh:32b1aaa1c3013d33c245493f4a65465eab9436b454d250102729321a44c8ab9a",
     "zh:38eff7e470acb48f66380a73a5c7cdd76cc9b9c9ba9a7249c7991488abe22fe3",
@@ -139,7 +148,10 @@ provider "registry.terraform.io/hashicorp/null" {
 
 provider "registry.terraform.io/hashicorp/random" {
   hashes = [
+    "h1:5KeoKSVKVHJW308uiTgslxFbjQAdWzBGUFK68vgMRWY=",
     "h1:I8MBeauYA8J8yheLJ8oSMWqB0kovn16dF/wKZ1QTdkk=",
+    "h1:R5Ucn26riKIEijcsiOMBR3uOAjuOMfI1x7XvH4P6B1w=",
+    "h1:p6WG1IPHnqx1fnJVKNjv733FBaArIugqy58HRZnpPCk=",
     "zh:03360ed3ecd31e8c5dac9c95fe0858be50f3e9a0d0c654b5e504109c2159287d",
     "zh:1c67ac51254ba2a2bb53a25e8ae7e4d076103483f55f39b426ec55e47d1fe211",
     "zh:24a17bba7f6d679538ff51b3a2f378cedadede97af8a1db7dad4fd8d6d50f829",

@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# This script obtains the "h1:..." hashes for all platforms
+# See https://github.com/hashicorp/terraform/issues/27264
+
 set -o errexit; set -o nounset; set -o pipefail
 export GOBIN="${PWD}/bin" PATH="${PWD}/bin:${PATH}"; TMPDIR="$(mktemp -d)"
 
