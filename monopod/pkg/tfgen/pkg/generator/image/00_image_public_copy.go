@@ -11,13 +11,13 @@ import (
 	"github.com/jdolitsky/tq/pkg/tq"
 )
 
-// GeneratorImage02PublicCopy makes a copy of
+// GeneratorImage00PublicCopy makes a copy of
 // public image contents, with paths fixed
-type GeneratorImage02PublicCopy struct {
+type GeneratorImage00PublicCopy struct {
 	SourcePathPrefix string
 }
 
-func (g *GeneratorImage02PublicCopy) Generate(dir string, skip, only []string, data *tq.TerraformFile) error {
+func (g *GeneratorImage00PublicCopy) Generate(dir string, skip, only []string, data *tq.TerraformFile) error {
 	submoduleName := filepath.Base(dir)
 	if slices.Contains(skip, submoduleName) {
 		return nil
@@ -48,7 +48,7 @@ func (g *GeneratorImage02PublicCopy) Generate(dir string, skip, only []string, d
 	if err != nil {
 		return nil
 	}
-	combined = util.Combine(tfFiles)
+	combined = util.CombineNoGenerated(tfFiles)
 	for _, block := range combined.Body.Blocks {
 		// Adjust the source paths appropriately
 		v := block.Attributes[constants.AttributeSource]

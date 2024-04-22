@@ -21,19 +21,19 @@ import (
 )
 
 const (
+	Image00PublicCopy       = "Image00PublicCopy"
 	Image01Outputs          = "Image01Outputs"
 	Image01OutputsVersioned = "Image01OutputsVersioned"
-	Image02PublicCopy       = "Image02PublicCopy"
 	Toplevel01Modules       = "Toplevel01Modules"
 	Toplevel02Outputs       = "Toplevel02Outputs"
 )
 
 var knownGeneratorsImage = map[string]generator.Generator{
-	Image01Outputs:          &image.GeneratorImage01Outputs{},
-	Image01OutputsVersioned: &image.GeneratorImage01OutputsVersioned{},
-	Image02PublicCopy: &image.GeneratorImage02PublicCopy{
+	Image00PublicCopy: &image.GeneratorImage00PublicCopy{
 		SourcePathPrefix: "",
 	},
+	Image01Outputs:          &image.GeneratorImage01Outputs{},
+	Image01OutputsVersioned: &image.GeneratorImage01OutputsVersioned{},
 }
 
 var knownGeneratorsTopLevel = map[string]generator.Generator{
@@ -173,11 +173,11 @@ func validateTFGenGenerators(opts *options.TFGenOptions) error {
 
 	// Require certain inputs using certain generators,
 	// resetting generators where necessary with with proper args set
-	if slices.Contains(opts.Generators, Image02PublicCopy) {
+	if slices.Contains(opts.Generators, Image00PublicCopy) {
 		if opts.SourcePathPrefix == "" {
 			opts.SourcePathPrefix = defaultSourcePathPrefixParentDir
 		}
-		knownGeneratorsImage[Image02PublicCopy] = &image.GeneratorImage02PublicCopy{
+		knownGeneratorsImage[Image00PublicCopy] = &image.GeneratorImage00PublicCopy{
 			SourcePathPrefix: opts.SourcePathPrefix,
 		}
 	}
