@@ -43,7 +43,7 @@ func generate(versioned bool, dir string, skip, only []string, data *tq.Terrafor
 		return nil
 	}
 
-	tfFiles, err := util.LoadAllTerraformFilesInDir(dir)
+	tfFiles, err := util.LoadAllTerraformFilesInDirNoGenerated(dir)
 	if err != nil {
 		return nil
 	}

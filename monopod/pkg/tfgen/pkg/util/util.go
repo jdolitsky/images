@@ -51,6 +51,14 @@ func combine(tfFiles map[string]*tq.TerraformFile, includeGenerated bool) *tq.Te
 }
 
 func LoadAllTerraformFilesInDir(dir string) (map[string]*tq.TerraformFile, error) {
+	return loadAllTerraformFilesInDir(dir, true)
+}
+
+func LoadAllTerraformFilesInDirNoGenerated(dir string) (map[string]*tq.TerraformFile, error) {
+	return loadAllTerraformFilesInDir(dir, false)
+}
+
+func loadAllTerraformFilesInDir(dir string, includeGenerated bool) (map[string]*tq.TerraformFile, error) {
 	result := map[string]*tq.TerraformFile{}
 	entries, err := os.ReadDir(dir)
 	if err != nil {
@@ -61,6 +69,10 @@ func LoadAllTerraformFilesInDir(dir string) (map[string]*tq.TerraformFile, error
 			continue
 		}
 		name := entry.Name()
+		// Do not load the generated file
+		if !includeGenerated && name == constants.GeneratedTfFilename {
+			continue
+		}
 		if strings.HasSuffix(name, constants.TfFileExtension) || strings.HasSuffix(name, constants.TfTemplateFileExtention) {
 			b, err := os.ReadFile(path.Join(dir, name))
 			if err != nil {
@@ -107,7 +119,23 @@ func IsPublicCopyBlock(block tq.TerraformFileBlock) bool {
 	return strings.HasSuffix(UnquoteTQString(block.Attributes[constants.AttributeSource]), fmt.Sprintf("/%s", constants.AttributePublicCopy))
 }
 
+// These come the form: source = "../../tflib/versions"
+// Just check source ends with "/versions"
+func IsVersionsBlock(block tq.TerraformFileBlock) bool {
+	return strings.HasSuffix(UnquoteTQString(block.Attributes[constants.AttributeSource]), fmt.Sprintf("/%s", constants.AttributeVersions))
+}
+
 // Checking for resouce "oci_tag"
 func IsOciTagBlock(block tq.TerraformFileBlock) bool {
 	return block.Type == constants.TfTypeResource && len(block.Labels) > 0 && block.Labels[0] == constants.ResourceOciTag
+}
+
+// Check whether or not the file uses the versions tflib
+func HasVersionsBlock(tfFile *tq.TerraformFile) bool {
+	for _, block := range tfFile.Body.Blocks {
+		if IsVersionsBlock(block) {
+			return true
+		}
+	}
+	return false
 }

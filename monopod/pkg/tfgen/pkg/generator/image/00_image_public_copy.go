@@ -26,9 +26,9 @@ func (g *GeneratorImage00PublicCopy) Generate(dir string, skip, only []string, d
 		return nil
 	}
 
-	tfFiles, err := util.LoadAllTerraformFilesInDir(dir)
+	tfFiles, err := util.LoadAllTerraformFilesInDirNoGenerated(dir)
 	if err != nil {
-		return nil
+		return err
 	}
 	combined := util.CombineNoGenerated(tfFiles)
 	publicImageToCopy := ""
@@ -46,9 +46,9 @@ func (g *GeneratorImage00PublicCopy) Generate(dir string, skip, only []string, d
 	publicImageDir := filepath.Join(constants.PublicImagesRoot, publicImageToCopy)
 	tfFiles, err = util.LoadAllTerraformFilesInDir(publicImageDir)
 	if err != nil {
-		return nil
+		return err
 	}
-	combined = util.CombineNoGenerated(tfFiles)
+	combined = util.Combine(tfFiles)
 	for _, block := range combined.Body.Blocks {
 		// Adjust the source paths appropriately
 		v := block.Attributes[constants.AttributeSource]
