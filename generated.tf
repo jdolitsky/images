@@ -840,6 +840,11 @@ module "ml-metadata-store-server" {
   target_repository = "${var.target_repository}/ml-metadata-store-server"
 }
 
+module "mongodb" {
+  source            = "./images/mongodb"
+  target_repository = "${var.target_repository}/mongodb"
+}
+
 module "multus-cni" {
   source            = "./images/multus-cni"
   target_repository = "${var.target_repository}/multus-cni"
@@ -1366,6 +1371,11 @@ module "trino" {
 module "trust-manager" {
   source            = "./images/trust-manager"
   target_repository = "${var.target_repository}/trust-manager"
+}
+
+module "valkey" {
+  source            = "./images/valkey"
+  target_repository = "${var.target_repository}/valkey"
 }
 
 module "vault" {
@@ -2140,6 +2150,10 @@ output "summary_ml-metadata-store-server" {
   value = module.ml-metadata-store-server.summary
 }
 
+output "summary_mongodb" {
+  value = module.mongodb.summary
+}
+
 output "summary_multus-cni" {
   value = module.multus-cni.summary
 }
@@ -2554,6 +2568,10 @@ output "summary_trino" {
 
 output "summary_trust-manager" {
   value = module.trust-manager.summary
+}
+
+output "summary_valkey" {
+  value = module.valkey.summary
 }
 
 output "summary_vault" {
