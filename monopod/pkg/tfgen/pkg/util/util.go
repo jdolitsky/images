@@ -20,7 +20,15 @@ func EmptyTerraformFile() *tq.TerraformFile {
 	}
 }
 
+func Combine(tfFiles map[string]*tq.TerraformFile) *tq.TerraformFile {
+	return combine(tfFiles, true)
+}
+
 func CombineNoGenerated(tfFiles map[string]*tq.TerraformFile) *tq.TerraformFile {
+	return combine(tfFiles, false)
+}
+
+func combine(tfFiles map[string]*tq.TerraformFile, includeGenerated bool) *tq.TerraformFile {
 	data := EmptyTerraformFile()
 	// If main.tf exists, use first
 	if tfFile, ok := tfFiles[constants.MainTfFilename]; ok {
@@ -32,6 +40,12 @@ func CombineNoGenerated(tfFiles map[string]*tq.TerraformFile) *tq.TerraformFile 
 			continue
 		}
 		data.Body.Blocks = append(data.Body.Blocks, tfFile.Body.Blocks...)
+	}
+	// Add generated.tf last if we intend to include it
+	if includeGenerated {
+		if tfFile, ok := tfFiles[constants.GeneratedTfFilename]; ok {
+			data.Body.Blocks = append(data.Body.Blocks, tfFile.Body.Blocks...)
+		}
 	}
 	return data
 }
@@ -85,6 +99,12 @@ func QuoteTQString(s string) string {
 // Just check source ends with "/publisher"
 func IsPublisherBlock(block tq.TerraformFileBlock) bool {
 	return strings.HasSuffix(UnquoteTQString(block.Attributes[constants.AttributeSource]), fmt.Sprintf("/%s", constants.AttributePublisher))
+}
+
+// These come the form: source = "../../tflib/public-copy"
+// Just check source ends with "/public-copy"
+func IsPublicCopyBlock(block tq.TerraformFileBlock) bool {
+	return strings.HasSuffix(UnquoteTQString(block.Attributes[constants.AttributeSource]), fmt.Sprintf("/%s", constants.AttributePublicCopy))
 }
 
 // Checking for resouce "oci_tag"
